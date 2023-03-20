@@ -1,0 +1,19 @@
+// ADD NEW CUSTOM COLOURS HERE:
+$custom-colors: (
+  "download": #5a418c,
+  "edit": #e0a15d,
+  "view": #bed6e1,
+  "green": #0A7C76
+);
+
+$spacers: (
+  0: 0,
+  1: $spacer * .5,
+  2: $spacer * 1,
+  3: $spacer * 2,
+  4: $spacer * 3,
+  5: $spacer * 4,
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);

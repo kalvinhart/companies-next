@@ -1,0 +1,110 @@
+// Container max-widths
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1450px,
+);
+
+// Grid
+$grid-gutter-width: 2rem;
+
+// Colours
+$primary: #012239;
+$secondary: #084a72;
+$green: #0A7C76;
+$dark: #091624;
+$white: #fff;
+
+$success: #56b187;
+$warning: #f8d363;
+$danger: #b8434f;
+
+// Layout heights
+$navbar-height: 80px;
+$company-search-header-height: 170px;
+
+// Radius
+$border-radius: 0.5rem;
+
+// Navbar
+$navbar-light-brand-color: #fff;
+$navbar-light-brand-hover-color: #fff;
+$navbar-brand-margin-end: 2rem;
+$navbar-light-toggler-border-color: #fff;
+
+// Dropdowns
+$dropdown-border-width: 1px;
+
+// Buttons
+$btn-font-family: "Ubuntu", sans-serif;
+$button-variant-color: #fff;
+$btn-disabled-opacity: 0.4;
+$btn-hover-bg-shade-amount: 30%;
+$btn-hover-bg-tint-amount: 30%;
+$btn-hover-border-shade-amount: 30%;
+$btn-hover-border-tint-amount: 30%;
+$btn-border-radius: 50px;
+$btn-padding-y: 0.75rem;
+$btn-padding-x: 1.5rem;
+
+// Card
+$card-border-width: 0;
+$card-cap-bg: $secondary;
+$card-cap-color: #fff;
+$card-spacer-y: 2rem;
+$card-spacer-x: 2rem;
+$card-cap-padding-y: 2rem;
+$card-cap-padding-x: 2rem;
+$card-border-radius: $border-radius;
+$card-bg: transparent;
+
+.card {
+  overflow: hidden !important;
+  .card-body {
+    background-color: #fff !important;
+  }
+}
+
+// List Group
+$list-group-border-width: 0px;
+
+// Form Control
+$input-focus-box-shadow: 0 0 5px #62a8ea50;
+
+// Contrast Ratio
+$min-contrast-ratio: 4.5; // adjusts the contrast ratio between colours. The default is 4.5:1
+
+// Off Canvas
+$offcanvas-horizontal-width: 600px;
+
+// Typography
+$font-size-root: 14px;
+$font-family-base: "Ubuntu", sans-serif;
+$line-height-base: 1.75;
+
+// Heading sizes
+$display-font-sizes: (
+  1: 3rem,
+  2: 2.5rem,
+  3: 2rem,
+  4: 1.5rem,
+  5: 1.1rem,
+  6: rem,
+);
+$display-font-weight: 700;
+
+// Tables
+$table-striped-bg: rgba($color: #f3f3f3,
+    $alpha: 0.6,
+  );
+$table-border-width: 0px;
+$table-cell-padding-y: 1rem;
+$table-cell-padding-x: 1rem;
+$table-cell-vertical-align: middle;
+
+// Checkboxes
+$form-check-input-width: 1.5em;
+$form-check-input-checked-bg-color: #fff;
+$form-check-input-checked-color: $green;
