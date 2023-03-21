@@ -53,7 +53,7 @@ const Home: React.FC<Props> = ({ eosBlock, sectorBlock, aboutBlock }) => {
         />
         <link
           rel="icon"
-          href="/favicon.ico"
+          href="/images/logos/blue-logo-32.png"
         />
       </Head>
 
