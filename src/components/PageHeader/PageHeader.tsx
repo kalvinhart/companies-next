@@ -30,6 +30,7 @@ const PageHeader: React.FC<Props> = ({ title, tagline, address, sector, country,
           onLoad={showBackgroundImage}
           width={500}
           height={337}
+          priority
         />
       )}
 
