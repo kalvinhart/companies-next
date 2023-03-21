@@ -7,7 +7,7 @@ interface CockpitModel {
 }
 
 export class ContentService implements IContentService {
-    cmsRoot: string = process.env.CMS_ROOT ?? "";
+    cmsRoot: string = process.env.NEXT_PUBLIC_CMS_ROOT ?? "";
     apiRoot: string = `${this.cmsRoot}/api/collections/get`;
     apiSingleton: string = `${this.cmsRoot}/api/singletons/get`;
 

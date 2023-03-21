@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useState } from 'react';
+import styles from './PageHeader.module.scss';
 
 interface Props {
   title?: string;
@@ -19,21 +20,27 @@ const PageHeader: React.FC<Props> = ({ title, tagline, address, sector, country,
   };
 
   return (
-    <div className="page-header">
+    <div className={styles.pageHeader}>
       {imageUrl && (
         <Image
-          className={`backgroundImage ${showBgImage && 'showBackgroundImage'}`}
+          className={`${styles.backgroundImage} ${showBgImage && styles.showBackgroundImage}`}
           src={imageUrl}
           alt=""
           draggable="false"
           onLoad={showBackgroundImage}
+          width={500}
+          height={337}
         />
       )}
 
-      <div className={`background-overlay ${size}`}>
+      <div className={`${styles.backgroundOverlay} ${styles[size]}`}>
         <div className="container">
           {title && <h2 className="display-1 fw-bold">{title}</h2>}
-          {tagline && <p className="tagline fs-6 lh-lg">{tagline}</p>}
+          {tagline && (
+            <span
+              className="tagline fs-6 lh-lg"
+              dangerouslySetInnerHTML={{ __html: tagline }}></span>
+          )}
           {address && (
             <p>
               <span className="fw-bold">Registered Address:</span>

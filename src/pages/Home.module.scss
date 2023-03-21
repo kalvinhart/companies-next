@@ -1,0 +1,14 @@
+@import '/src/styles/component-bootstrap-import.scss';
+
+.isBackgroundLogo {
+  background-image: url('/public/images/logos/logo-background.png');
+  background-position: 110% 75%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 50%;
+
+  @include media-breakpoint-down(md) {
+    background-position: 110% 20%;
+    background-size: 100%;
+  }
+}

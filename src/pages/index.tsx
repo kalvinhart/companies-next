@@ -1,8 +1,10 @@
 import { PageHeader } from '@/components/PageHeader';
+import { ContentService } from '@/services/ContentService/ContentService';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+import styles from './Home.module.scss';
 import HomeContentCard from './HomeContentCard';
-
 interface HomepageContent {
   blockId: string;
   title: string;
@@ -12,34 +14,31 @@ interface HomepageContent {
   };
 }
 
-export default function Home() {
-  const eosBlock: HomepageContent = {
-    blockId: '',
-    title: '',
-    content: '',
-    image: {
-      path: '',
+const contentService: ContentService = new ContentService();
+
+export const getStaticProps: GetStaticProps = async _context => {
+  const homePageContent = await contentService.getHomepage();
+
+  const eosBlock = homePageContent.find((c: any) => c.blockId === 'eosBlock') ?? null;
+  const sectorBlock = homePageContent.find((c: any) => c.blockId === 'sectorBlock') ?? null;
+  const aboutBlock = homePageContent.find((c: any) => c.blockId === 'aboutBlock') ?? null;
+
+  return {
+    props: {
+      eosBlock,
+      sectorBlock,
+      aboutBlock,
     },
   };
+};
 
-  const sectorsBlock: HomepageContent = {
-    blockId: '',
-    title: '',
-    content: '',
-    image: {
-      path: '',
-    },
-  };
+interface Props {
+  eosBlock: HomepageContent;
+  sectorBlock: HomepageContent;
+  aboutBlock: HomepageContent;
+}
 
-  const aboutBlock: HomepageContent = {
-    blockId: '',
-    title: '',
-    content: '',
-    image: {
-      path: '',
-    },
-  };
-
+const Home: React.FC<Props> = ({ eosBlock, sectorBlock, aboutBlock }) => {
   return (
     <>
       <Head>
@@ -61,7 +60,7 @@ export default function Home() {
       <PageHeader
         title="Welcome to Infospectrum EOS"
         tagline="Company Ranking and Benchmarking across Sectors<br>Sector Averages<br>Detailed Financial Data with Visualisations"
-        imageUrl="/public/images/vessel.jpg"
+        imageUrl="/images/vessel.jpg"
         size="large-header"
       />
 
@@ -74,7 +73,7 @@ export default function Home() {
         />
       )}
 
-      <div className="home-content-card py-5 bg-primary text-white is-background-logo">
+      <div className={`home-content-card py-5 bg-primary text-white ${styles.isBackgroundLogo}`}>
         <div className="container">
           <div className="row">
             <div className="col-12">
@@ -86,11 +85,11 @@ export default function Home() {
         </div>
       </div>
 
-      {sectorsBlock && (
+      {sectorBlock && (
         <HomeContentCard
-          title={sectorsBlock.title}
-          paragraph={sectorsBlock.content}
-          imagePath={sectorsBlock.image.path}
+          title={sectorBlock.title}
+          paragraph={sectorBlock.content}
+          imagePath={sectorBlock.image.path}
           imagePosition="left"
           buttonText="View Sectors"
           buttonLink="/sectors"
@@ -98,14 +97,14 @@ export default function Home() {
       )}
 
       {aboutBlock && (
-        <div className="home-content-card py-5 bg-primary is-background-logo">
+        <div className={`home-content-card py-5 bg-primary ${styles.isBackgroundLogo}`}>
           <div style={{ height: '190px' }}></div>
           <div className="container">
             <div className="row">
               <div className="col-12">
                 <div className="bg-white rounded p-4 p-lg-5">
                   <h3 className="display-3 mb-4">{aboutBlock.title}?</h3>
-                  <p dangerouslySetInnerHTML={{ __html: aboutBlock.content }}></p>
+                  <span dangerouslySetInnerHTML={{ __html: aboutBlock.content }}></span>
                   <div className="mt-4">
                     <Link
                       href="https://www.infospectrum.net"
@@ -122,4 +121,6 @@ export default function Home() {
       )}
     </>
   );
-}
+};
+
+export default Home;

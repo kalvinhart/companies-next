@@ -1,5 +1,5 @@
 // The parts of bootstrap which we can import into components
-@import '../../node_modules/bootstrap/scss/functions';
+@import '/node_modules/bootstrap/scss/functions';
 @import './variable-overrides.scss'; // our varible overrides
-@import '../../node_modules/bootstrap/scss/variables';
-@import '../../node_modules/bootstrap/scss/mixins';
+@import '/node_modules/bootstrap/scss/variables';
+@import '/node_modules/bootstrap/scss/mixins';

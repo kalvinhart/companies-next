@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import styles from './HomeContentCard.module.scss';
 
 interface Props {
   title?: string;
@@ -18,7 +19,7 @@ const HomeContentCard: React.FC<Props> = ({
   buttonText,
   buttonLink,
 }) => {
-  const imageUrl = `${process.env.CMS_ROOT}/${imagePath}`;
+  const imageUrl = `${process.env.NEXT_PUBLIC_CMS_ROOT}/${imagePath}`;
 
   return (
     <section className="py-5 bg-white">
@@ -26,13 +27,15 @@ const HomeContentCard: React.FC<Props> = ({
         <div className="row">
           {imagePosition === 'left' && (
             <div className="col-12 col-md-5">
-              <div className="content-image-parent">
-                <div className="content-image-frame mb-5 mb-md-0 pe-md-4">
+              <div className={styles.contentImageParent}>
+                <div className={`${styles.contentImageFrame} mb-5 mb-md-0 pe-md-4`}>
                   {imagePath && (
                     <Image
                       src={imageUrl}
-                      className="content-image rounded shadow"
+                      className={`${styles.contentImage} rounded shadow`}
                       alt=""
+                      width={500}
+                      height={337}
                     />
                   )}
                 </div>
@@ -43,9 +46,9 @@ const HomeContentCard: React.FC<Props> = ({
           <div className="col-12 col-md-7">
             {title && <h3 className="display-3 mb-4">{title}</h3>}
             {paragraph && (
-              <p
+              <span
                 className="mb-5 mb-md-0"
-                dangerouslySetInnerHTML={{ __html: paragraph }}></p>
+                dangerouslySetInnerHTML={{ __html: paragraph }}></span>
             )}
             {buttonText && buttonLink && (
               <Link
@@ -58,13 +61,15 @@ const HomeContentCard: React.FC<Props> = ({
 
           {imagePosition === 'right' && (
             <div className="col-12 col-md-5">
-              <div className="content-image-parent">
-                <div className="content-image-frame ps-md-4">
+              <div className={styles.contentImageParent}>
+                <div className={`${styles.contentImageFrame} ps-md-4`}>
                   {imagePath && (
                     <Image
                       src={imageUrl}
-                      className="content-image rounded shadow"
+                      className={`${styles.contentImage} rounded shadow`}
                       alt=""
+                      width={500}
+                      height={337}
                     />
                   )}
                 </div>
