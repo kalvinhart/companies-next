@@ -1,0 +1,34 @@
+@import '/src/styles/component-bootstrap-import.scss';
+
+.searchHeader {
+  position: fixed;
+  top: $navbar-height;
+  width: 100%;
+  z-index: 99;
+  height: $company-search-header-height;
+}
+
+.filtersToggle {
+  display: none;
+  @include media-breakpoint-down(lg) {
+    display: block;
+  }
+}
+
+.filtersPanel {
+  @include media-breakpoint-down(lg) {
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    top: $company-search-header-height;
+    left: 0;
+    width: 100%;
+    background-color: $primary;
+    transition: max-height 0.3s ease;
+  }
+}
+
+.filtersPanel.show {
+  transition: max-height 0.3s ease;
+  max-height: 100vh;
+}

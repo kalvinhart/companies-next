@@ -1,0 +1,25 @@
+@import '/src/styles/component-bootstrap-import.scss';
+
+.searchNav {
+  position: fixed;
+  height: calc(100vh - $navbar-height - $company-search-header-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-height: 600px;
+
+  .letter {
+    transition: transform 0.1s ease;
+  }
+
+  .letter:hover {
+    transition: transform 0.1s ease;
+    transform: scale(1.05);
+  }
+}
+
+.ul {
+  list-style-type: none;
+  padding-left: 0px;
+  text-align: center;
+}
