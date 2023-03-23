@@ -4,32 +4,32 @@
   height: $navbar-height;
 }
 
-.navbarBrand {
+.navbar-brand {
   font-weight: 700;
   font-size: 1.4rem;
 }
 
-.navbarToggler {
+.navbar-toggler {
   width: 55px;
   height: inherit;
   border: 0px solid transparent;
   text-align: right;
 }
 
-.navbarToggler:focus {
+.navbar-toggler:focus {
   box-shadow: 0 0 0 0 !important;
 }
 
-.navLink {
+.nav-link {
   transition: opacity 0.2s ease;
 }
 
-.navLink:hover {
+.nav-link:hover {
   opacity: 0.8;
 }
 
 @include media-breakpoint-down(lg) {
-  .navbarCollapse {
+  .navbar-collapse {
     position: absolute;
     top: $navbar-height;
     left: 0;
@@ -40,13 +40,13 @@
     flex-direction: column;
     align-items: center;
 
-    .navbarNav {
+    .navbar-nav {
       width: 100%;
       display: flex;
       align-items: center;
     }
 
-    .navLink {
+    .nav-link {
       padding: 1rem 0;
     }
   }
