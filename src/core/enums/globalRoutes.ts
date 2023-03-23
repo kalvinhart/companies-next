@@ -1,5 +1,5 @@
 export enum EOSRoutes {
-    HOME = 'home',
+    HOME = '/',
     SECTORS = 'sectors',
     COMPANIES = 'companies',
     RANKING = 'ranking',
