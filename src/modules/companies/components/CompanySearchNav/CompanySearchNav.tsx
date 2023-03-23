@@ -1,8 +1,8 @@
 import styles from './CompanySearchNav.module.scss';
 
-interface Props {
+type Props = {
   results: any[];
-}
+};
 
 const CompanySearchNav: React.FC<Props> = ({ results }) => {
   const locateLetter = (letter: string) => {

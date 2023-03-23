@@ -1,4 +1,4 @@
-import { Layout } from '@/components/layouts/Layout';
+import { Layout } from '@/core/components/layouts/Layout';
 import '@/styles/custom-bootstrap-theme.scss';
 import '@/styles/globals.scss';
 import type { AppProps } from 'next/app';

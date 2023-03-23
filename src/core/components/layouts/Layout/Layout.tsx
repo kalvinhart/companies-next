@@ -4,9 +4,9 @@ import { Footer } from '../Footer';
 import { Header } from '../Header';
 import styles from './Layout.module.scss';
 
-interface Props {
+type Props = {
   children: React.ReactNode;
-}
+};
 
 const ubuntu = Ubuntu({ weight: ['400', '700'], subsets: ['latin'] });
 

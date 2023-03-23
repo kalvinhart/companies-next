@@ -1,4 +1,4 @@
-import { EOSRoutes } from '@/enums/globalRoutes';
+import { EOSRoutes } from '@/core/enums/globalRoutes';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';

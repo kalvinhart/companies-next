@@ -1,18 +1,8 @@
-import { PageHeader } from '@/components/PageHeader';
-import { ContentService } from '@/services/ContentService/ContentService';
+import { ContentService } from '@/core/services/ContentService/ContentService';
+import HomePage from '@/modules/home/components/HomePage/HomePage';
+import { HomepageContent } from '@/modules/home/types/HomePageContent';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
-import styles from './Home.module.scss';
-import HomeContentCard from './HomeContentCard';
-interface HomepageContent {
-  blockId: string;
-  title: string;
-  content: string;
-  image: {
-    path: string;
-  };
-}
 
 const contentService: ContentService = new ContentService();
 
@@ -32,11 +22,11 @@ export const getStaticProps: GetStaticProps = async _context => {
   };
 };
 
-interface Props {
+type Props = {
   eosBlock: HomepageContent;
   sectorBlock: HomepageContent;
   aboutBlock: HomepageContent;
-}
+};
 
 const Home: React.FC<Props> = ({ eosBlock, sectorBlock, aboutBlock }) => {
   return (
@@ -64,68 +54,11 @@ const Home: React.FC<Props> = ({ eosBlock, sectorBlock, aboutBlock }) => {
         />
       </Head>
 
-      <PageHeader
-        title="Welcome to Infospectrum EOS"
-        tagline="Company Ranking and Benchmarking across Sectors<br>Sector Averages<br>Detailed Financial Data with Visualisations"
-        imageUrl="/images/vessel.jpg"
-        size="large-header"
+      <HomePage
+        aboutBlock={aboutBlock}
+        eosBlock={eosBlock}
+        sectorBlock={sectorBlock}
       />
-
-      {eosBlock && (
-        <HomeContentCard
-          title={eosBlock.title}
-          paragraph={eosBlock.content}
-          imagePath={eosBlock.image.path}
-          imagePosition="right"
-        />
-      )}
-
-      <div className={`home-content-card py-5 bg-primary text-white ${styles.isBackgroundLogo}`}>
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <h4 className="py-2">4 Sectors</h4>
-              <h4 className="py-2">80 Companies</h4>
-              <h4 className="py-2">5+ Periods of Financial Data</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {sectorBlock && (
-        <HomeContentCard
-          title={sectorBlock.title}
-          paragraph={sectorBlock.content}
-          imagePath={sectorBlock.image.path}
-          imagePosition="left"
-          buttonText="View Sectors"
-          buttonLink="/sectors"
-        />
-      )}
-
-      {aboutBlock && (
-        <div className={`home-content-card py-5 bg-primary ${styles.isBackgroundLogo}`}>
-          <div style={{ height: '190px' }}></div>
-          <div className="container">
-            <div className="row">
-              <div className="col-12">
-                <div className="bg-white rounded p-4 p-lg-5">
-                  <h3 className="display-3 mb-4">{aboutBlock.title}?</h3>
-                  <span dangerouslySetInnerHTML={{ __html: aboutBlock.content }}></span>
-                  <div className="mt-4">
-                    <Link
-                      href="https://www.infospectrum.net"
-                      className="btn btn-green"
-                      target="_blank">
-                      Visit our website
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 };

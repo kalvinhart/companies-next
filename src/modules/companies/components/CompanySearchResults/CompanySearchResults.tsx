@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
-interface Props {
+type Props = {
   companies: any[];
-}
+};
 
 const CompanySearchResults: React.FC<Props> = ({ companies }) => {
   return (

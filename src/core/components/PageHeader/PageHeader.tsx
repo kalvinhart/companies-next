@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import styles from './PageHeader.module.scss';
 
-interface Props {
+type Props = {
   title?: string;
   tagline?: string;
   address?: string;
@@ -10,7 +10,7 @@ interface Props {
   country?: string;
   imageUrl?: string;
   size: 'small-header' | 'large-header';
-}
+};
 
 const PageHeader: React.FC<Props> = ({ title, tagline, address, sector, country, imageUrl, size = 'small-header' }) => {
   const [showBgImage, setShowBgImage] = useState<boolean>(false);

@@ -1,15 +1,12 @@
-import { useCompanyFilters } from '@/hooks/useCompanyFilters';
-import { CompanyService } from '@/services/CompanyService/CompanyService';
+import { CompanyService } from '@/core/services/CompanyService/CompanyService';
+import CompanyPage from '@/modules/companies/components/CompanyPage/CompanyPage';
+import { useCompanyFilters } from '@/modules/companies/hooks/useCompanyFilters';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import CompanySearchHeader from './CompanySearchHeader';
-import CompanySearchNav from './CompanySearchNav';
-import CompanySearchResults from './CompanySearchResults';
-import styles from './Index.module.scss';
 
-interface Props {
+type Props = {
   companies: any[];
-}
+};
 
 const companyService: CompanyService = new CompanyService();
 
@@ -51,25 +48,13 @@ const Companies: React.FC<Props> = ({ companies }) => {
         />
       </Head>
 
-      <CompanySearchHeader
+      <CompanyPage
         sectors={sectors}
         countries={countries}
+        filteredResults={filteredResults}
         filters={filters}
         setFilters={setFilters}
       />
-
-      <div className={styles.searchContent}>
-        <div className="container">
-          <div className="row">
-            <div className="col-10 col-lg-11 search-col">
-              <CompanySearchResults companies={filteredResults} />
-            </div>
-            <div className="col-2 col-lg-1">
-              <CompanySearchNav results={filteredResults} />
-            </div>
-          </div>
-        </div>
-      </div>
     </>
   );
 };

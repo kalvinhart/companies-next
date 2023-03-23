@@ -1,13 +1,13 @@
-import { Filters } from '@/hooks/useCompanyFilters';
+import { Filters } from '@/modules/companies/hooks/useCompanyFilters';
 import React, { SetStateAction, useState } from 'react';
 import styles from './CompanySearchHeader.module.scss';
 
-interface Props {
+type Props = {
   sectors: string[];
   countries: string[];
   filters: Filters;
   setFilters: React.Dispatch<SetStateAction<Filters>>;
-}
+};
 
 const CompanySearchHeader: React.FC<Props> = ({ sectors, countries, filters, setFilters }) => {
   const [showFilters, setShowFilters] = useState<boolean>(false);

@@ -2,14 +2,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './HomeContentCard.module.scss';
 
-interface Props {
+type Props = {
   title?: string;
   paragraph?: string;
   imagePath?: string;
   imagePosition: 'left' | 'right';
   buttonText?: string;
   buttonLink?: string;
-}
+};
 
 const HomeContentCard: React.FC<Props> = ({
   title,
