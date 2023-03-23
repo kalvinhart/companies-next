@@ -8,9 +8,8 @@ type Props = {
   companies: any[];
 };
 
-const companyService: CompanyService = new CompanyService();
-
 export const getStaticProps: GetStaticProps = async _context => {
+  const companyService: CompanyService = new CompanyService();
   const companies = await companyService.getCompanys();
 
   return {

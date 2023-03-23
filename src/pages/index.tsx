@@ -4,9 +4,8 @@ import { HomepageContent } from '@/modules/home/types/HomePageContent';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 
-const contentService: ContentService = new ContentService();
-
 export const getStaticProps: GetStaticProps = async _context => {
+  const contentService: ContentService = new ContentService();
   const homePageContent = await contentService.getHomepage();
 
   const eosBlock = homePageContent.find((c: any) => c.blockId === 'eosBlock') ?? null;
