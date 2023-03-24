@@ -1,11 +1,11 @@
 import Button from 'react-bootstrap/Button';
-import styles from './CompanySearchNav.module.scss';
+import styles from './CompaniesSearchNav.module.scss';
 
 type Props = {
   results: any[];
 };
 
-const CompanySearchNav: React.FC<Props> = ({ results }) => {
+const CompaniesSearchNav: React.FC<Props> = ({ results }) => {
   const locateLetter = (letter: string) => {
     const letterEl: HTMLElement = document.getElementById(letter)!;
     if (!letterEl) return;
@@ -31,4 +31,4 @@ const CompanySearchNav: React.FC<Props> = ({ results }) => {
   ) : null;
 };
 
-export default CompanySearchNav;
+export default CompaniesSearchNav;

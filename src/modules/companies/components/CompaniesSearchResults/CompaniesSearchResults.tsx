@@ -4,7 +4,7 @@ type Props = {
   companies: any[];
 };
 
-const CompanySearchResults: React.FC<Props> = ({ companies }) => {
+const CompaniesSearchResults: React.FC<Props> = ({ companies }) => {
   return (
     <div id="searchResults">
       {companies.length === 0 ? (
@@ -24,7 +24,7 @@ const CompanySearchResults: React.FC<Props> = ({ companies }) => {
                     key={c.Name}
                     className="list-group-item mb-2">
                     <Link
-                      href={`/companies/${c.SafeName}`}
+                      href={`/companies/${c.CompanyId}`}
                       className="fs-5 mb-1">
                       <h5 className="fw-bold mb-0">{c.Name}</h5>
                       <span className="fs-6 mb-1 me-3">
@@ -45,4 +45,4 @@ const CompanySearchResults: React.FC<Props> = ({ companies }) => {
   );
 };
 
-export default CompanySearchResults;
+export default CompaniesSearchResults;

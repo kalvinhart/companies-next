@@ -1,5 +1,5 @@
 import { CompanyService } from '@/core/services/CompanyService/CompanyService';
-import CompanyPage from '@/modules/companies/components/CompanyPage/CompanyPage';
+import CompaniesPage from '@/modules/companies/components/CompaniesPage/CompaniesPage';
 import { useCompanyFilters } from '@/modules/companies/hooks/useCompanyFilters';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
@@ -47,7 +47,7 @@ const Companies: React.FC<Props> = ({ companies }) => {
         />
       </Head>
 
-      <CompanyPage
+      <CompaniesPage
         sectors={sectors}
         countries={countries}
         filteredResults={filteredResults}

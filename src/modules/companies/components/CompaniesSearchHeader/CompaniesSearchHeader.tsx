@@ -1,6 +1,6 @@
 import { Filters } from '@/modules/companies/hooks/useCompanyFilters';
 import React, { SetStateAction, useState } from 'react';
-import styles from './CompanySearchHeader.module.scss';
+import styles from './CompaniesSearchHeader.module.scss';
 
 type Props = {
   sectors: string[];
@@ -9,7 +9,7 @@ type Props = {
   setFilters: React.Dispatch<SetStateAction<Filters>>;
 };
 
-const CompanySearchHeader: React.FC<Props> = ({ sectors, countries, filters, setFilters }) => {
+const CompaniesSearchHeader: React.FC<Props> = ({ sectors, countries, filters, setFilters }) => {
   const [showFilters, setShowFilters] = useState<boolean>(false);
 
   const toggleFilters = () => {
@@ -102,4 +102,4 @@ const CompanySearchHeader: React.FC<Props> = ({ sectors, countries, filters, set
   );
 };
 
-export default CompanySearchHeader;
+export default CompaniesSearchHeader;

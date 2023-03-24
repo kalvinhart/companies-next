@@ -1,9 +1,9 @@
 import { SetStateAction } from 'react';
 import { Filters } from '../../hooks/useCompanyFilters';
-import CompanySearchHeader from '../CompanySearchHeader/CompanySearchHeader';
-import CompanySearchNav from '../CompanySearchNav/CompanySearchNav';
-import CompanySearchResults from '../CompanySearchResults/CompanySearchResults';
-import styles from './CompanyPage.module.scss';
+import CompaniesSearchHeader from '../CompaniesSearchHeader/CompaniesSearchHeader';
+import CompaniesSearchNav from '../CompaniesSearchNav/CompaniesSearchNav';
+import CompaniesSearchResults from '../CompaniesSearchResults/CompaniesSearchResults';
+import styles from './CompaniesPage.module.scss';
 
 type Props = {
   sectors: string[];
@@ -13,10 +13,10 @@ type Props = {
   setFilters: React.Dispatch<SetStateAction<Filters>>;
 };
 
-const CompanyPage: React.FC<Props> = ({ sectors, countries, filteredResults, filters, setFilters }) => {
+const CompaniesPage: React.FC<Props> = ({ sectors, countries, filteredResults, filters, setFilters }) => {
   return (
     <>
-      <CompanySearchHeader
+      <CompaniesSearchHeader
         sectors={sectors}
         countries={countries}
         filters={filters}
@@ -27,10 +27,10 @@ const CompanyPage: React.FC<Props> = ({ sectors, countries, filteredResults, fil
         <div className="container">
           <div className="row">
             <div className="col-10 col-lg-11 search-col">
-              <CompanySearchResults companies={filteredResults} />
+              <CompaniesSearchResults companies={filteredResults} />
             </div>
             <div className="col-2 col-lg-1">
-              <CompanySearchNav results={filteredResults} />
+              <CompaniesSearchNav results={filteredResults} />
             </div>
           </div>
         </div>
@@ -39,4 +39,4 @@ const CompanyPage: React.FC<Props> = ({ sectors, countries, filteredResults, fil
   );
 };
 
-export default CompanyPage;
+export default CompaniesPage;
