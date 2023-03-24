@@ -1,20 +1,37 @@
 import { CompanyService } from '@/core/services/CompanyService/CompanyService';
 import { CompanyPage } from '@/modules/company/components/CompanyPage';
 import { GetServerSideProps } from 'next';
+import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import Head from 'next/head';
 
 type Props = {
   company: any;
 };
 
-export const getServerSideProps: GetServerSideProps = async _context => {
+export const getServerSideProps: GetServerSideProps = async context => {
   const companyService: CompanyService = new CompanyService();
-  const company = await companyService.getCompanyById();
+  const company = await companyService.getCompanyById(context.params!.companyId as string);
 
   return {
     props: {
-      company: JSON.parse(company),
+      company: company,
     },
+  };
+};
+
+export const generateMetadata = async ({ params: { companyId } }: Params) => {
+  const companyService: CompanyService = new CompanyService();
+  const company = await companyService.getCompanyById(companyId);
+
+  if (!company.Name) {
+    return {
+      title: 'Unknown Company',
+    };
+  }
+
+  return {
+    title: company.Name,
+    description: `InfoSpectrum EOS company information for ${company.Name}.`,
   };
 };
 

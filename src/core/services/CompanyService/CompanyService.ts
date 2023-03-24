@@ -10,7 +10,7 @@ export class CompanyService implements ICompanyService {
         return this.http.get<any>({ url: "http://localhost:3000/api/companies" });
     }
 
-    getCompanyById(): Promise<any> {
-        return this.http.get<any>({ url: "http://localhost:3000/api/company" })
+    getCompanyById(id: string): Promise<any> {
+        return this.http.get<any>({ url: `http://localhost:3000/api/company/${id}` })
     }
 }
