@@ -9,7 +9,7 @@ type Props = {
   sector?: string;
   country?: string;
   imageUrl?: string;
-  size: 'small-header' | 'large-header';
+  size?: 'small-header' | 'large-header';
 };
 
 const PageHeader: React.FC<Props> = ({ title, tagline, address, sector, country, imageUrl, size = 'small-header' }) => {
