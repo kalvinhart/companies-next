@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import styles from './HeaderNav.module.scss';
 
 interface IMenuItem {
   name: string;
@@ -39,7 +40,8 @@ const HeaderNav: React.FC = () => {
     <Navbar
       bg="primary"
       sticky="top"
-      expand="lg">
+      expand="lg"
+      className={styles.headerNav}>
       <Container>
         <Navbar.Brand
           className="d-flex align-items-center"
@@ -64,7 +66,7 @@ const HeaderNav: React.FC = () => {
               <Nav.Link
                 key={item.route}
                 href={item.route}
-                className="text-white cursor-pointer me-4"
+                className="text-white cursor-pointer me-5"
                 as={Link}>
                 <span>
                   <i className={`fa me-1 ${item.icon}`}></i>
