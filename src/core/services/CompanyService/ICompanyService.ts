@@ -1,3 +1,4 @@
 export interface ICompanyService {
-    getCompanys(): Promise<void>;
+    getCompanys(): Promise<any>;
+    getCompanyById(): Promise<any>;
 }
