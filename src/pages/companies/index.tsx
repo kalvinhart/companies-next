@@ -25,10 +25,10 @@ const Companies: React.FC<Props> = ({ companies }) => {
   return (
     <>
       <Head>
-        <title>InfoSpectrum Eos</title>
+        <title>InfoSpectrum Eos- All Eos Companies</title>
         <meta
           name="description"
-          content="InfoSpectrum Eos"
+          content="InfoSpectrum Eos - search all Eos companies"
         />
         <meta
           name="viewport"

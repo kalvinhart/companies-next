@@ -1,7 +1,6 @@
 import { CompanyService } from '@/core/services/CompanyService/CompanyService';
 import { CompanyPage } from '@/modules/company/components/CompanyPage';
 import { GetServerSideProps } from 'next';
-import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import Head from 'next/head';
 
 type Props = {
@@ -19,30 +18,14 @@ export const getServerSideProps: GetServerSideProps = async context => {
   };
 };
 
-export const generateMetadata = async ({ params: { companyId } }: Params) => {
-  const companyService: CompanyService = new CompanyService();
-  const company = await companyService.getCompanyById(companyId);
-
-  if (!company.Name) {
-    return {
-      title: 'Unknown Company',
-    };
-  }
-
-  return {
-    title: company.Name,
-    description: `InfoSpectrum EOS company information for ${company.Name}.`,
-  };
-};
-
 const Company: React.FC<Props> = ({ company }) => {
   return (
     <>
       <Head>
-        <title>InfoSpectrum Eos</title>
+        <title>InfoSpectrum EOS - Company Information for {company.Name}</title>
         <meta
           name="description"
-          content="InfoSpectrum Eos"
+          content={`InfoSpectrum EOS company information for ${company.Name}.`}
         />
         <meta
           name="viewport"
