@@ -1,3 +1,4 @@
+import Button from 'react-bootstrap/Button';
 import styles from './CompanySearchNav.module.scss';
 
 type Props = {
@@ -17,14 +18,13 @@ const CompanySearchNav: React.FC<Props> = ({ results }) => {
   return results.length > 0 ? (
     <ul className={`${styles.searchNav} ${styles.ul} py-3`}>
       {results.map(result => (
-        <li
-          key={result.letter}
-          className={styles.letter}>
-          <button
-            className="btn btn-link"
+        <li key={result.letter}>
+          <Button
+            variant="link"
+            size="sm"
             onClick={() => locateLetter(result.letter)}>
             {result.letter}
-          </button>
+          </Button>
         </li>
       ))}
     </ul>

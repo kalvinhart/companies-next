@@ -1,4 +1,4 @@
-@import '/src/styles/component-bootstrap-import.scss';
+@import '/src/styles/variable-overrides.scss';
 
 .searchNav {
   position: fixed;
@@ -7,15 +7,6 @@
   flex-direction: column;
   justify-content: space-evenly;
   min-height: 600px;
-
-  .letter {
-    transition: transform 0.1s ease;
-  }
-
-  .letter:hover {
-    transition: transform 0.1s ease;
-    transform: scale(1.05);
-  }
 }
 
 .ul {
