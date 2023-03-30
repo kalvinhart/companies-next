@@ -37,23 +37,27 @@ const PageHeader: React.FC<Props> = ({ title, tagline, address, sector, country,
       <div className={`${styles.backgroundOverlay} ${styles[size]}`}>
         <div className="container">
           {title && <h2 className="display-1 fw-bold">{title}</h2>}
+
           {tagline && (
             <span
               className="tagline fs-6 lh-lg"
               dangerouslySetInnerHTML={{ __html: tagline }}></span>
           )}
+
           {address && (
             <p>
               <span className="fw-bold">Registered Address:</span>
               {address}
             </p>
           )}
+
           {sector && (
             <p>
               <span className="fw-bold">Sector:</span>
               {sector}
             </p>
           )}
+
           {country && (
             <p>
               <span className="fw-bold">Country:</span>

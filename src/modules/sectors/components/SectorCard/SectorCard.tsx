@@ -1,14 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Sector } from '../../types/Sector';
+import styles from './SectorCard.module.scss';
 
 type Props = {
   sector: Sector;
 };
 
 const SectorCard: React.FC<Props> = ({ sector }) => {
-  const imageUrl = (image: string): string => {
-    return '';
+  const cmsRoot = process.env.NEXT_PUBLIC_CMS_ROOT ?? '';
+  const imageUrl = (image: any): string => {
+    return `${cmsRoot}/${image.path}`;
   };
 
   return (
@@ -30,7 +32,7 @@ const SectorCard: React.FC<Props> = ({ sector }) => {
             <div className="col-12 col-lg-6">
               <div className="d-flex justify-content-center my-2">
                 <Link
-                  href={`/companies/search?${sector.name}`}
+                  href={`/companies/search?sector=${sector.name}`}
                   className="btn btn-green">
                   View all companies in {sector.name}
                 </Link>
@@ -39,7 +41,7 @@ const SectorCard: React.FC<Props> = ({ sector }) => {
             <div className="col-12 col-lg-6">
               <div className="d-flex justify-content-center my-2">
                 <Link
-                  href={`/companies/search?${sector.name}`}
+                  href={`/companies/search?sector=${sector.name}`}
                   className="btn btn-green">
                   View Sector Ranking
                 </Link>
@@ -52,7 +54,9 @@ const SectorCard: React.FC<Props> = ({ sector }) => {
         <Image
           src={imageUrl(sector.image)}
           alt=""
-          className="sector-image rounded"
+          width={450}
+          height={400}
+          className={`${styles.sectorImage} rounded`}
         />
       </div>
     </div>

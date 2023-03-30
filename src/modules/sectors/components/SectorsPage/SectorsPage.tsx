@@ -1,6 +1,7 @@
 import { PageHeader } from '@/core/components/PageHeader';
 import Container from 'react-bootstrap/Container';
 import { Sector } from '../../types/Sector';
+import { SectorCard } from '../SectorCard';
 
 type Props = {
   sectors: Sector[];
@@ -16,7 +17,10 @@ const SectorsPage: React.FC<Props> = ({ sectors }) => {
 
       <Container>
         {sectors.map(sector => (
-          <div key={sector.name}>{sector.name}</div>
+          <SectorCard
+            key={sector.name}
+            sector={sector}
+          />
         ))}
       </Container>
     </>
